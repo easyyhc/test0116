@@ -30,7 +30,8 @@ public class SecondlevelCache {
   public void fun1(){
       
         
-        
+        /*
+         * 这里是时间！！！*/
       try {
           
           Date a = new Date();
