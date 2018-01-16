@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+   <!-- 配置表与实体对象的关系 -->
+   <!-- package属性:填写一个包名.在元素内部凡是需要书写完整类名的属性,可以直接写简单类名了. -->
+   
+<hibernate-mapping package="com.easy.domain" >
+	<class name="Dwxx" table="jdwxx" lazy="true">
+		<id name="id"  >
+			<generator class="native"></generator>
+		</id>
+
+		<property name="dwdm" column="dwdm" ></property>
+		<property name="dwmc" column="dwmc" ></property>
+		<property name="dwszds" column="dwszds" ></property>
+		<property name="dwszdq" column="dwszdq" ></property>
+		<property name="dwszdjd" column="dwszdjd" ></property>
+		<property name="dwzt" column="dwzt" ></property>
+		<property name="dwbz" column="dwbz" ></property>
+	
+	
+		<!-- 
+		lazy属性: 决定是否延迟加载
+			true(默认值): 延迟加载,懒加载
+			false: 立即加载
+			extra: 极其懒惰
+		fetch属性: 决定加载策略.使用什么类型的sql语句加载集合数据
+			select(默认值): 单表查询加载
+			join: 使用多表查询加载集合
+			subselect:使用子查询加载集合
+	 -->
+	 <!-- batch-size: 抓取集合的数量为3.
+	 		抓取dwxx的集合时,一次抓取几个jyxx的集合.
+	  -->
+		<set name="jyxxset"  cascade="all" inverse="true" fetch="select" lazy="true" batch-size="3">
+			<key column="dwid" ></key>
+		<one-to-many class="Jyxx1" />
+		</set>
+	</class>
+</hibernate-mapping>

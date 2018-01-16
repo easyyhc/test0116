@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+   <!-- 配置表与实体对象的关系 -->
+   <!-- package属性:填写一个包名.在元素内部凡是需要书写完整类名的属性,可以直接写简单类名了. -->
+   
+<hibernate-mapping package="com.easy.domain" >
+	
+	<class name="DwJy" table="dwjy" >
+		<id name="id"  >
+			<generator class="uuid"></generator>
+		</id>
+		<property name="jyname" column="jyname" >
+		</property>
+		<property name="dwname" column="dwname" >
+		</property>
+	</class>
+</hibernate-mapping>
